@@ -65,4 +65,13 @@ const start = async () => {
   }
 };
 
+// Adicione logo antes do bloco 'start()' ou após o registro das rotas
+app.get('/', async (request, reply) => {
+  return { 
+    status: 'online', 
+    service: 'Piscallo API',
+    timestamp: new Date().toISOString() 
+  };
+});
+
 start();
