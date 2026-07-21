@@ -3,12 +3,12 @@ import cors from '@fastify/cors';
 import jwt from '@fastify/jwt';
 import fastifyCookie from '@fastify/cookie';
 import { env } from './config/env.js';
-import { productRoutes } from './routes/products';
-import { orderRoutes } from './routes/orders';
-import { authRoutes } from './routes/auth';
-import { webhookRoutes } from './routes/webhooks';
-import { adminRoutes } from './routes/admin';
-import { categoryRoutes } from './routes/categories';
+import { productRoutes } from './routes/products.js';
+import { orderRoutes } from './routes/orders.js';
+import { authRoutes } from './routes/auth.js';
+import { webhookRoutes } from './routes/webhooks.js';
+import { adminRoutes } from './routes/admin.js';
+import { categoryRoutes } from './routes/categories.js';
 
 const app = Fastify({ logger: true });
 
