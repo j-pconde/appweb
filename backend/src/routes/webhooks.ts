@@ -1,5 +1,5 @@
 import type { FastifyInstance } from 'fastify';
-import { prisma } from '../lib/prisma';
+import { prisma } from '../lib/prisma.js';
 import { mercadoPagoWebhookSchema } from '../schemas/webhook.schema';
 
 export async function webhookRoutes(app: FastifyInstance) {

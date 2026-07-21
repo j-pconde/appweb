@@ -1,6 +1,6 @@
 import type { FastifyInstance } from 'fastify';
 import { z } from 'zod';
-import { prisma } from '../lib/prisma';
+import { prisma } from '../lib/prisma.js';
 import { authenticate } from '../hooks/auth.hook';
 
 // Schema para validar a entrada do estoque

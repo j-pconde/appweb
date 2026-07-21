@@ -1,5 +1,5 @@
 import type { FastifyInstance } from 'fastify';
-import { prisma } from '../lib/prisma';
+import { prisma } from '../lib/prisma.js';
 import { createOrderBodySchema } from '../schemas/order.schema';
 import { authenticate } from '../hooks/auth.hook'; // <-- Nova importação
 
