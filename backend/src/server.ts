@@ -2,7 +2,7 @@ import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import jwt from '@fastify/jwt';
 import fastifyCookie from '@fastify/cookie';
-import { env } from './config/env';
+import { env } from './config/env.js';
 import { productRoutes } from './routes/products';
 import { orderRoutes } from './routes/orders';
 import { authRoutes } from './routes/auth';
