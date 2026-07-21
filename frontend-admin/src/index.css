@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+@import "tailwindcss";
+
+
+
+@theme {
+
+  /* --- PALETA DE CORES BRAND (MAPEADAS NO TAILWIND V4) --- */
+  --color-brand-primary: #1E3A8A;
+  --color-brand-hover: #1E293B;
+  --color-brand-bg: #F8FAFC;
+  --color-brand-card: #FFFFFF;
+  --color-brand-neutral: #F1F5F9;
+  --color-brand-text: #0F172A;
+  --color-brand-text-muted: #64748B;
+
+  /* --- TIPOGRAFIA ADAPTÁVEL (BRAND) --- */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /*--font-heading: 'Montserrat', sans-serif;*/
+  --font-heading: "Plus Jakarta Sans", "Montserrat", sans-serif;
+
+}
+
+
+
+@layer utilities {
+
+  /* Evita zoom indesejado em inputs no iOS, mantendo legibilidade ideal */
+  .admin-input {
+    @apply w-full bg-brand-neutral border border-brand-text/10 rounded-xl px-4 py-3 text-base md:text-sm text-brand-text focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all;
+  }
+
+  /* Garante área de clique confortável (mínimo 44px de altura) para ações principais */
+  .admin-btn {
+    @apply flex items-center justify-center gap-2 px-5 py-3 md:py-2 bg-brand-primary hover:bg-brand-hover text-white font-heading font-bold text-sm md:text-xs rounded-xl transition-all shadow-xs disabled:opacity-50 min-h-11 md:min-h-9;
+  }
+
+}
+
+
+
+/* --- ESTILOS GLOBAIS --- */
+
+body {
+
+  font-family: var(--font-sans);
+  color: var(--color-brand-text);
+  background-color: var(--color-brand-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+} 
+
