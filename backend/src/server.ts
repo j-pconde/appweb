@@ -1,3 +1,5 @@
+console.log("=== INICIANDO O SCRIPT DO SERVIDOR ===");
+
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import jwt from '@fastify/jwt';
