@@ -1,7 +1,7 @@
 import type { FastifyInstance } from 'fastify';
 import { prisma } from '../lib/prisma.js';
-import { createOrderBodySchema } from '../schemas/order.schema';
-import { authenticate } from '../hooks/auth.hook'; // <-- Nova importação
+import { createOrderBodySchema } from '../schemas/order.schema.js';
+import { authenticate } from '../hooks/auth.hook.js'; // <-- Nova importação
 
 type JwtUser = {
   sub: string;

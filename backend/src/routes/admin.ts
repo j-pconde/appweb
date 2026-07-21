@@ -1,7 +1,7 @@
 import type { FastifyInstance } from 'fastify';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma.js';
-import { authenticate } from '../hooks/auth.hook';
+import { authenticate } from '../hooks/auth.hook.js';
 
 // Schema para validar a entrada do estoque
 const updateStockBodySchema = z.object({
