@@ -1,6 +1,6 @@
 import type { FastifyInstance } from 'fastify';
 import { prisma } from '../lib/prisma.js';
-import { getProductParamsSchema } from '../schemas/product.schema';
+import { getProductParamsSchema } from '../schemas/product.schema.js';
 import { z } from 'zod';
 
 // Helper para gerar Slugs a partir do nome do produto
