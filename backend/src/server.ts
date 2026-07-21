@@ -15,8 +15,8 @@ const app = Fastify({ logger: true });
 // Configura o CORS sem o await no nível raiz
 app.register(cors, {
   origin: [
-    //'http://localhost:3000',
-    //'http://localhost:3001',
+    'http://localhost:3000',
+    'http://localhost:3001',
     'https://sinchi.com.br'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

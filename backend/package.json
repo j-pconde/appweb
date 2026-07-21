@@ -10,7 +10,7 @@
     "build": "npx prisma generate && tsc",
     "start": "tsx watch dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch src/server.js"
+    "dev": "tsx watch dist/server.js"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
