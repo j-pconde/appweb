@@ -1,52 +1,42 @@
-console.log("=== INICIANDO O SCRIPT DO SERVIDOR ===");
-
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import jwt from '@fastify/jwt';
-import fastifyCookie from '@fastify/cookie'; // 1. Importa o plugin de cookies
-import { env } from './config/env'; // <-- Importa o validador de ambiente
+import fastifyCookie from '@fastify/cookie';
+import { env } from './config/env';
 import { productRoutes } from './routes/products';
 import { orderRoutes } from './routes/orders';
 import { authRoutes } from './routes/auth';
 import { webhookRoutes } from './routes/webhooks';
-import { adminRoutes } from './routes/admin'; // <-- Importação
+import { adminRoutes } from './routes/admin';
 import { categoryRoutes } from './routes/categories';
 
 const app = Fastify({ logger: true });
 
-// Configura o segredo do JWT usando a variável de ambiente segura
+// Configura o CORS sem o await no nível raiz
 app.register(cors, {
   origin: [
-    'http://localhost:3000', // Frontend Cliente
-    'http://localhost:3001',  // Frontend Admin
+    //'http://localhost:3000',
+    //'http://localhost:3001',
     'https://sinchi.com.br'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // Necessário para aceitar Cookies/Tokens via HttpOnly
+  credentials: true,
 });
 
-// Registrar o Fastify Cookie ANTES do JWT e das Rotas
 app.register(fastifyCookie, {
-  secret: 'sua-chave-secreta-para-assinar-cookies', // Troque por uma string segura
+  secret: 'sua-chave-secreta-para-assinar-cookies',
 });
-
-// No seu src/server.ts, deixe o registro do JWT minimalista:
-// app.register(jwt, {
-//   secret: process.env.JWT_SECRET || 'sua-chave-secreta-do-jwt',
-// });
 
 app.register(jwt, {
-  secret: 'sua-chave-secreta-do-jwt',
+  secret: process.env.JWT_SECRET || 'sua-chave-secreta-do-jwt',
   cookie: {
     cookieName: 'token',
-    signed: false, // <- Defina como FALSE se você não está assinando os cookies no login!
+    signed: false,
   },
 });
 
-
 // Registrar rotas
-
 app.register(authRoutes);
 app.register(adminRoutes);
 app.register(categoryRoutes);
@@ -54,10 +44,16 @@ app.register(productRoutes);
 app.register(orderRoutes);
 app.register(webhookRoutes);
 
+app.get('/', async (request, reply) => {
+  return {
+    status: 'online',
+    service: 'Piscallo API',
+    timestamp: new Date().toISOString()
+  };
+});
 
 const start = async () => {
   try {
-    // Inicializa o servidor usando a porta e o host dinâmicos do .env
     await app.listen({ port: env.PORT, host: env.HOST });
     console.log(`🚀 Servidor executando em http://${env.HOST}:${env.PORT}`);
   } catch (err) {
@@ -65,14 +61,5 @@ const start = async () => {
     process.exit(1);
   }
 };
-
-// Adicione logo antes do bloco 'start()' ou após o registro das rotas
-app.get('/', async (request, reply) => {
-  return { 
-    status: 'online', 
-    service: 'Piscallo API',
-    timestamp: new Date().toISOString() 
-  };
-});
 
 start();
