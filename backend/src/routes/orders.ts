@@ -19,7 +19,7 @@ export async function orderRoutes(app: FastifyInstance) {
       const userId = (request.user as JwtUser).sub;
 
       try {
-        const order = await prisma.$transaction(async (tx) => {
+        const order = await prisma.$transaction(async (tx: any) => {
           let calculatedTotal = 0;
           const orderItemsData = [];
 

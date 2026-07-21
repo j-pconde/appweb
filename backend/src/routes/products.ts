@@ -176,7 +176,7 @@ export async function productRoutes(app: FastifyInstance) {
         .replace(/\s+/g, '-')            
         .replace(/-+/g, '-');            
 
-      await prisma.$transaction(async (tx) => {
+      await prisma.$transaction(async (tx: any) => {
         // Atualiza os dados básicos do Produto
         await tx.product.update({
           where: { id },
