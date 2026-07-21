@@ -17,7 +17,8 @@ app.register(cors, {
   origin: [
     'http://localhost:3000',
     'http://localhost:3001',
-    'https://sinchi.com.br'
+    'https://sinchi.com.br',
+    'https://admin.sinchi.com.br'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
