@@ -3,7 +3,7 @@ import fastifyJwt from '@fastify/jwt'; // npm install @fastify/jwt adicionado
 
 import bcrypt from 'bcrypt';
 import { prisma } from '../lib/prisma.js';
-import { registerBodySchema, loginBodySchema } from '../schemas/auth.schema';
+import { registerBodySchema, loginBodySchema } from '../schemas/auth.schema.js';
 
 import fastifyCookie from '@fastify/cookie';
 
