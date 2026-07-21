@@ -7,8 +7,8 @@
   "type": "module",
   "main": "dist/server.js",
   "scripts": {
-    "build": "npx prisma generate && tsc",
-    "start": "tsx watch dist/server.js",
+    "build": "prisma generate && tsc",
+    "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch dist/server.js"
   },
