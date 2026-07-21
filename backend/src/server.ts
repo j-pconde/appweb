@@ -15,10 +15,11 @@ import { categoryRoutes } from './routes/categories';
 const app = Fastify({ logger: true });
 
 // Configura o segredo do JWT usando a variável de ambiente segura
-await app.register(cors, {
+app.register(cors, {
   origin: [
     'http://localhost:3000', // Frontend Cliente
-    'http://localhost:3001'  // Frontend Admin
+    'http://localhost:3001',  // Frontend Admin
+    'https://sinchi.com.br'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
