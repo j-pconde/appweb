@@ -93,5 +93,4 @@ main()
   .catch(async (e) => {
     console.error("❌ Erro ao rodar o seed:", e);
     await prisma.$disconnect();
-    process.exit(1);
   });
